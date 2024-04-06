@@ -1,34 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React,{ useState } from 'react'
 
+import Compo from './Components/Compo'
 function App() {
-  const [count, setCount] = useState(0)
-
+  var deletetodo=()=>{
+    var b=document.querySelectorAll("#div")
+    b.forEach((e)=>{e.style.textDecoration="line-through";})
+      }
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+  <div className=' w-full h-screen flex justify-center flex-col items-center flex-wrap select-none'>
+    <p className='text-4xl text-gray-800 font-semibold pb-10'>WhatToDo App</p>
+    <div className='  bg-slate-400 flex justify-center items-center flex-col p-5 h-auto w-56 rounded-2xl flex-wrap'>
+    <p className=' pb-4 text-xl font-medium'>Todo</p>
+    <Compo todo="Eat"/>
+    <Compo todo="Sleep"/>
+    <Compo todo="Code"/>
+    <Compo todo="Play"/>
+    <button className=' w-full text-center p-2 bg-gray-50 mt-3 rounded-2xl' onClick={deletetodo}>All complete</button>
+    </div>
+    </div>
   )
 }
 
